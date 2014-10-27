@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string name="app_name">Test</string>
+    <string name="hello_world">hehehwoca</string>
+    <string name="action_settings">Settings</string>
+    <string name="textinit">Log in or Sign up</string>
+    <string name="authorName">HawChang</string>
+    <string name="login">Log in</string>
+    <string name="signup">Sign up</string>
+    <string name="usermain">enter usermain</string>
+    <string name="title_activity_user">User</string>
+    <string name="password">Password</string>
+    <string name="username">User Name</string>
+    <string name="myquestionlist">我发布的题单</string>
+    <string name="myanswerlist">我回答的题单</string>
+    <string name="atme">\&#064;我的</string>
+    <string name="title_activity_my_question_list">MyQuestionList</string>
+
+</resources>
