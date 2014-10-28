@@ -25,6 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <h1><b>Log in</b></h1>
   <hr>
+   <center><h1><b><s:property value="errorMessage"/></b></h1></center>
   <center>
   <s:form action="login">
   	<table>

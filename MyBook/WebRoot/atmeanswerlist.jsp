@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'myquestionlist.jsp' starting page</title>
+    <title>My JSP 'atmeanswerlist.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,26 +23,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <center><h1><b><s:property value="errorMessage"/></b></h1></center>
-    <br>
-    User:<s:property value="username"/>
+   User:<s:property value="username"/>
     <hr>
-  <center>
-  <table border=1>
-  <tr>
-  <td>Num</td>
-  <td>List Name</td>
-  </tr>
-  <s:iterator value="list" id="listname" status="stuts">
+   <table border=1 align="CENTER">
+    <tr>
+    	<td>Num</td>
+        <td>ListName</td>
+  	</tr>
+	<s:iterator value="list" id="listname" status="stuts">
   	 <tr>
-  	 <td align="center"><s:property value="#stuts.index+1" /></td>
-  	 <td align="center"><a href="<s:url action="searchquestionlist.action"><s:param name="username" value="username"></s:param><s:param name="listname" value="#listname"></s:param></s:url>"><s:property value="#listname"/></a></td>
+  	 	<td><s:property value="#stuts.index+1" /></td>
+		<td><a href="<s:url action="answerlist.action"><s:param name="listname" value="%{listname}"></s:param></s:url>"><s:property value="listname"/></a></td>
   	 </tr>
 	</s:iterator>
 	</table>
-	<s:form align="CENTER" action="returnuser.action" >
-	<input type="hidden" name="username" value=${username}  />
-	<s:submit value="Return"/></s:form>
-	</center>
   </body>
 </html>

@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <hr>
     <center>
   <s:form action="establishmylist" >
-  <input type="hidden" name="username" value=${username} />
+  <input type="hidden" name="username" value=${username}  />
   <table>
   <tr><td>题单名</td></tr>
    <tr><td><s:textfield name="listname"/></td></tr>
@@ -59,7 +59,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	</table>
   <s:submit />
   </s:form>
-  <s:form align="CENTER" action="index.action" ><s:submit value="Return"/></s:form>
+  <s:form align="CENTER" action="returnuser.action" >
+  <input type="hidden" name="username" value=${username}  />
+  <s:submit value="Return"/></s:form>
   </center>
   </body>
 </html>

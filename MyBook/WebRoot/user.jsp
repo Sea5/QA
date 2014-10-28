@@ -23,18 +23,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <center><h1><b><s:property value="errorMessage"/></b></h1></center>
-    <br>
     User:<s:property value="username"/>
     <hr>
     <center>
-    	<h1><b>
+    	<h2><b>
     	
     	<a href="<s:url action="seemyquestionlist.action"><s:param name="username" value="username"></s:param></s:url>">我发布的题单.</a><br>
     	<a href="seemyanswerlist.action">我回答的题单.</a><br>
     	<a href="<s:url action="chooseestablishmylist"><s:param name="username" value="username"></s:param></s:url>">发布新题单.</a><br>
+    	<a href="<s:url action="chooseanswerlist.action"><s:param name="username" value="username"></s:param></s:url>">@我的题单.</a><br>
     	
-    	</b></h1>
+    	</b></h2>
     	<s:form align="CENTER" action="index.action" ><s:submit value="Return"/></s:form>
     </center>
   </body>
