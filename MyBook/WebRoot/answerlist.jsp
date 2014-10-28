@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'atmeanswerlist.jsp' starting page</title>
+    <title>My JSP 'answerlist.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,22 +23,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   User:<s:property value="username"/>
+ 	 <center><h1><b><s:property value="errorMessage"/></b></h1></center>
+    <br>
+    User:<s:property value="username"/>
     <hr>
-   <table border=1 align="CENTER">
-    <tr>
-    	<td>Num</td>
-        <td>ListName</td>
-  	</tr>
-	<s:iterator value="list" id="listname" status="stuts">
+    <center>
+    <s:form action="finished.action"> 
+    <input type="hidden" name="username" value=${username}  />
+  	<table border=1>
+  	<s:iterator value="list" id="question" status="stuts">
   	 <tr>
-  	 	<td><s:property value="#stuts.index+1" /></td>
-		<td><a href="<s:url action="answerlist.action"><s:param name="listname" value="%{listname}"></s:param><s:param name="username" value="%{username}"></s:param></s:url>"><s:property value="listname"/></a></td>
+  	 <td align="center">问题<s:property value="#stuts.index+1"/>：<s:property value="#question"/></td>
+  	 </tr>
+  	 <tr>
+  	 <td align="center"><s:textfield name="%answer[#stuts.index]" /></td>
   	 </tr>
 	</s:iterator>
 	</table>
+	<s:submit />
+	</s:form>
 	<s:form align="CENTER" action="returnuser.action" >
   <input type="hidden" name="username" value=${username}  />
   <s:submit value="Return"/></s:form>
+	</center>
   </body>
 </html>

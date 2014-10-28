@@ -18,7 +18,36 @@ public class BookAction extends ActionSupport {
 	private String question1, question2, question3, question4, question5,
 			question6;
 	private String answer1, answer2, answer3, answer4, answer5, answer6;
-	public String atMeAnswerList() throws Exception {
+	public String finished(){
+		for(String s:answer)
+		{
+			System.out.println(s);
+		}
+		return SUCCESS;
+	}
+	public String answerList(){
+		try{
+		String searchString = "select * from questions where listname = ?";
+		Connection tempConnection=bookConnection.getConnection();
+		PreparedStatement searchPreparedStatement=tempConnection.prepareStatement(searchString);
+		searchPreparedStatement.setString(1, listname);
+		ResultSet tempSet=searchPreparedStatement.executeQuery();
+		if(tempSet.next())
+		{
+			list.clear();
+			String tempString=new String();
+			do{
+				tempString=tempSet.getString("question");
+				list.add(tempString);
+			}while(tempSet.next());
+		}
+		}catch (Exception e) {
+			errorMessage = "fail in atMeAnswerList";
+			System.out.println("fail in atMeAnswerList");
+		}
+		return SUCCESS;
+	}
+	public String atMeAnswerList() {
 		try {
 			String searchListString = "select * from callon where username = ?";
 			Connection tempConnection = bookConnection.getConnection();
@@ -40,7 +69,6 @@ public class BookAction extends ActionSupport {
 		} catch (Exception e) {
 			errorMessage = "fail in atMeAnswerList";
 			System.out.println("fail in atMeAnswerList");
-			throw e;
 		}
 		return SUCCESS;
 	}

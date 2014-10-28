@@ -41,6 +41,12 @@
 <action name="chooseanswerlist" class="book.BookAction" method="atMeAnswerList" >
 <result>atmeanswerlist.jsp</result> 
 </action>
+<action name="answerlist" class="book.BookAction" method="answerList">
+<result>answerlist.jsp</result> 
+</action>
+<action name="finished" class="book.BookAction" method="finished">
+<result>user.jsp</result> 
+</action>
 <!--
 <action name="index" >
 <result>index.jsp</result>
