@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'questionlistsearchresult.jsp' starting page</title>
+    <title>My JSP 'seemyanswerlist.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,27 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <center><h1><b><s:property value="errorMessage"/></b></h1></center>
-    <br>
-    User:<s:property value="username"/>
-    <hr>
-    <center><s:property value="question"/></center>
-    <center>
-  <table border=1>
-  <tr>
-  <td>Question</td>
-  <td>Answer</td>
-  </tr>
-  <s:iterator value="list" id="question" status="stuts">
-  	 <tr>
-  	 <td align="center"><s:property value="#question"/></td>
-  	 <td align="center"><s:property value="%{answer[#stuts.index]}"/></td>
-  	 </tr>
-	</s:iterator>
-	</table>
-	<s:form align="CENTER" action="returnuser.action" >
-  <input type="hidden" name="username" value=${username}  />
-  <s:submit value="Return"/></s:form>
-	</center>
+    This is my JSP page. <br>
   </body>
 </html>

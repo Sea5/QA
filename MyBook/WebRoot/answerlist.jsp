@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'user.jsp' starting page</title>
+    <title>My JSP 'answerlist.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,18 +23,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+ 	 <center><h1><b><s:property value="errorMessage"/></b></h1></center>
+    <br>
     User:<s:property value="username"/>
     <hr>
     <center>
-    	<h2><b>
-    	
-    	<a href="<s:url action="seemyquestionlist.action"><s:param name="username" value="username"></s:param></s:url>">我发布的题单.</a><br>
-    	<a href="seemyanswerlist.action">我回答的题单.</a><br>
-    	<a href="<s:url action="chooseestablishmylist"><s:param name="username" value="username"></s:param></s:url>">发布新题单.</a><br>
-    	<a href="<s:url action="chooseanswerlist.action"><s:param name="username" value="username"></s:param></s:url>">@我的题单.</a><br>
-    	
-    	</b></h2>
-    	<s:form align="CENTER" action="index.action" ><s:submit value="Return"/></s:form>
-    </center>
+    <s:form action="finished.action"> 
+    <input type="hidden" name="username" value=${username}  />
+  	<table border=1>
+  	<s:iterator value="list" id="question" status="stuts">
+  	 <tr>
+  	 <td align="center">问题<s:property value="#stuts.index+1"/>：<s:property value="#question"/></td>
+  	 </tr>
+  	 <tr>
+  	 <td align="center"><s:textfield name="%answer[#stuts.index]" /></td>
+  	 </tr>
+	</s:iterator>
+	</table>
+	<s:submit />
+	</s:form>
+	<s:form align="CENTER" action="returnuser.action" >
+  <input type="hidden" name="username" value=${username}  />
+  <s:submit value="Return"/></s:form>
+	</center>
   </body>
 </html>
