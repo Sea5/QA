@@ -16,8 +16,9 @@
 <action name="seemyquestionlist" class="book.BookAction" method="seeMyQuestionList">
 <result>myquestionlist.jsp</result> 
 </action>
-<action name="signup" class="book.BookAction" method="signup">
-<result>signupresult.jsp</result> 
+<action name="signup" class="book.BookAction" method="signup"> 
+<result name="success">user.jsp</result>
+ <result name="fail">signup.jsp</result>
 </action>
 <action name="choosesignup">
 <result>signup.jsp</result> 
@@ -35,7 +36,8 @@
 <result>index.jsp</result> 
 </action>
 <action name="establishmylist" class="book.BookAction" method="establishMyList">
-<result>signupresult.jsp</result> 
+<result name="success">questionlistsearchresult.jsp</result> 
+<result name="fail">establishmylist.jsp</result>
 </action>
 
 <action name="chooseanswerlist" class="book.BookAction" method="atMeAnswerList" >

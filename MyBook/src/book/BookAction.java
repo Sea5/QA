@@ -18,35 +18,37 @@ public class BookAction extends ActionSupport {
 	private String question1, question2, question3, question4, question5,
 			question6;
 	private String answer1, answer2, answer3, answer4, answer5, answer6;
-	public String finished(){
-		for(String s:answer)
-		{
+
+	public String finished() {
+		for (String s : answer) {
 			System.out.println(s);
 		}
 		return SUCCESS;
 	}
-	public String answerList(){
-		try{
-		String searchString = "select * from questions where listname = ?";
-		Connection tempConnection=bookConnection.getConnection();
-		PreparedStatement searchPreparedStatement=tempConnection.prepareStatement(searchString);
-		searchPreparedStatement.setString(1, listname);
-		ResultSet tempSet=searchPreparedStatement.executeQuery();
-		if(tempSet.next())
-		{
-			list.clear();
-			String tempString=new String();
-			do{
-				tempString=tempSet.getString("question");
-				list.add(tempString);
-			}while(tempSet.next());
-		}
-		}catch (Exception e) {
+
+	public String answerList() {
+		try {
+			String searchString = "select * from questions where listname = ?";
+			Connection tempConnection = bookConnection.getConnection();
+			PreparedStatement searchPreparedStatement = tempConnection
+					.prepareStatement(searchString);
+			searchPreparedStatement.setString(1, listname);
+			ResultSet tempSet = searchPreparedStatement.executeQuery();
+			if (tempSet.next()) {
+				list.clear();
+				String tempString = new String();
+				do {
+					tempString = tempSet.getString("question");
+					list.add(tempString);
+				} while (tempSet.next());
+			}
+		} catch (Exception e) {
 			errorMessage = "fail in atMeAnswerList";
 			System.out.println("fail in atMeAnswerList");
 		}
 		return SUCCESS;
 	}
+
 	public String atMeAnswerList() {
 		try {
 			String searchListString = "select * from callon where username = ?";
@@ -57,14 +59,14 @@ public class BookAction extends ActionSupport {
 			ResultSet tempSet = searchListPreparedStatement.executeQuery();
 			if (tempSet.next()) {
 				list.clear();
-				String tempString=new String();
-				do{
-					tempString=tempSet.getString("listname");
+				String tempString = new String();
+				do {
+					tempString = tempSet.getString("listname");
 					list.add(tempString);
-					}while(tempSet.next());
-				errorMessage="@你的题单";
+				} while (tempSet.next());
+				errorMessage = "@你的题单";
 			} else {
-				errorMessage="没有@你的题单";
+				errorMessage = "没有@你的题单";
 			}
 		} catch (Exception e) {
 			errorMessage = "fail in atMeAnswerList";
@@ -75,28 +77,39 @@ public class BookAction extends ActionSupport {
 
 	private void userEstablishList(String user, String list) {
 		try {
+
 			String searchUserString = "select * from users where username = ?";
 			String updateString = "update users set questionlists = ? where username = ?";
 			String establishListString = "insert into listcreator (listname,creator) values (?,?)";
 			Connection tempConnection = bookConnection.getConnection();
+
 			PreparedStatement searchUserPreparedStatement = tempConnection
 					.prepareStatement(searchUserString);
 			PreparedStatement updatePreparedStatement = tempConnection
 					.prepareStatement(updateString);
 			PreparedStatement establishListPreparedStatement = tempConnection
 					.prepareStatement(establishListString);
+
 			searchUserPreparedStatement.setString(1, user);
+
 			ResultSet tempSet = searchUserPreparedStatement.executeQuery();
+
 			if (tempSet.next()) {
+
 				StringBuilder tempString = new StringBuilder(
 						tempSet.getString("questionlists"));
 				tempString.append("." + list);
+
 				updatePreparedStatement.setString(1, tempString.toString());
 				updatePreparedStatement.setString(2, user);
 				updatePreparedStatement.executeUpdate();
+				System.out.println("hehe");
 				establishListPreparedStatement.setString(1, list);
+				System.out.println("hehe");
 				establishListPreparedStatement.setString(2, user);
+				System.out.println("hehe");
 				establishListPreparedStatement.executeUpdate();
+				System.out.println("hehe");
 			}
 		} catch (Exception e) {
 			errorMessage = "fail in userEstablishList";
@@ -138,9 +151,9 @@ public class BookAction extends ActionSupport {
 		 */
 		// *************************************************************************************
 		try {
+			boolean flag = true;
 			String searchString = "select * from questions where listname = ?";
-			// String
-			// searchQuestionString="select * from questions where question = ?";
+			String searchQuestionString = "select * from questions where question = ?";
 			String addQuestionString = "insert into questions (listname,question,answer) values (?,?,?)";
 			Connection tempConnection = bookConnection.getConnection();
 			PreparedStatement searchstmt = tempConnection
@@ -149,49 +162,59 @@ public class BookAction extends ActionSupport {
 			ResultSet tempSet = searchstmt.executeQuery();
 			if (tempSet.next()) {
 				errorMessage = "题单名已存在";
+				return "fail";
 			} else {
+				/*
+				 * for(String s:list) { System.out.println(s); } for(String
+				 * s:answer) { System.out.println(s); }
+				 */
 				String questionString = new String();
 				String answerString = new String();
 				System.out.println("list.size=" + list.size());
 				System.out.println("answer.size=" + answer.size());
 				for (int i = 0; i < list.size() && i < answer.size(); i++) {
-					System.out.println("i=" + i);
 					questionString = list.get(i);
 					answerString = answer.get(i);
-					System.out.println("i=" + i);
 					if (questionString.length() != 0
 							&& answerString.length() != 0) {
-						System.out.println("i=" + i);
-						// PreparedStatement
-						// searchQuestionstmt=tempConnection.prepareStatement(searchQuestionString);
-						// searchQuestionstmt.setString(1, tempString);
-						// ResultSet
-						// questionResultSet=searchQuestionstmt.executeQuery();
-						// if(questionResultSet.next())
-						// {
-						// errorMessage="问题"+(i+1)+"已存在";
-						// break;
-						// }
-						// else {
-						PreparedStatement addQuestionstmt = tempConnection
-								.prepareStatement(addQuestionString);
-						addQuestionstmt.setString(1, listname);
-						addQuestionstmt.setString(2, questionString);
-						addQuestionstmt.setString(3, answerString);
-						System.out.println("i=" + i);
-						addQuestionstmt.executeUpdate();
-						System.out.println("i=" + i);
-						addQuestionstmt.close();
-						// }
-						// searchQuestionstmt.close();
-						// questionResultSet.close();
+						
+						System.out.println(questionString);
+						PreparedStatement searchQuestionstmt = tempConnection
+								.prepareStatement(searchQuestionString);
+						searchQuestionstmt.setString(1, questionString);
+						ResultSet questionResultSet = searchQuestionstmt
+								.executeQuery();
+						if (questionResultSet.next()) {
+							errorMessage = "问题" + (i + 1) + "已存在";
+							flag = false;
+						}
+						searchQuestionstmt.close();
+						questionResultSet.close();
 					}
 				}
-				userEstablishList(username, listname);
-				errorMessage = "添加题单成功";
-				System.out.println("succeed");
-			}
-			// **********************************************************************
+				if (flag == true) {
+					for (int i = 0; i < list.size() && i < answer.size(); i++) {
+						System.out.println("i=" + i);
+						questionString = list.get(i);
+						answerString = answer.get(i);
+						System.out.println("i=" + i);
+						if (questionString.length() != 0
+								&& answerString.length() != 0) {
+							PreparedStatement addQuestionstmt = tempConnection
+									.prepareStatement(addQuestionString);
+							addQuestionstmt.setString(1, listname);
+							addQuestionstmt.setString(2, questionString);
+							addQuestionstmt.setString(3, answerString);
+							System.out.println("i=" + i);
+							addQuestionstmt.executeUpdate();
+							System.out.println("i=" + i);
+							addQuestionstmt.close();
+						}
+					}
+					userEstablishList(username, listname);
+						errorMessage = "添加题单成功";
+					return "success";
+				}// **********************************************************************
 			System.out.println("listname:" + listname);
 			for (int i = 0; i < list.size(); i++) {
 				System.out.println("question:" + list.get(i));
@@ -199,16 +222,23 @@ public class BookAction extends ActionSupport {
 			}
 			System.out.println("username:" + username);
 			// *******************************************************************************
+				return "fail";
+			}
+			
 		} catch (Exception e) {
 			errorMessage = "establish fail";
 			System.out.println("fail in establish");
+			return "fail";
 		}
-		return SUCCESS;
 	}
 
 	public String signup() {
-		if (username.indexOf(".") != -1 || username.indexOf("/") != -1) {
+		if (username.length() == 0) {
+			errorMessage = "用户名不能为空";
+			return "fail";
+		} else if (username.indexOf(".") != -1 || username.indexOf("/") != -1) {
 			errorMessage = "用户名中不能有点号或斜杠";
+			return "fail";
 		} else {
 			try {
 				String searchString = "select * from users where username = ?";
@@ -220,6 +250,7 @@ public class BookAction extends ActionSupport {
 				ResultSet tempSet = searchstmt.executeQuery();
 				if (tempSet.next()) {
 					errorMessage = "用户名已存在";
+					return "fail";
 				} else {
 					PreparedStatement signupstmt = tempConnection
 							.prepareStatement(signupString);
@@ -230,14 +261,14 @@ public class BookAction extends ActionSupport {
 					signupstmt.executeUpdate();
 					errorMessage = "用户添加成功";
 					System.out.print("succeed");
+					return "success";
 				}
 			} catch (Exception e) {
 				errorMessage = "signup fail";
 				System.out.println("fail in signup");
+				return "fail";
 			}
 		}
-
-		return SUCCESS;
 	}
 
 	public String searchQuestionList() {
@@ -248,7 +279,9 @@ public class BookAction extends ActionSupport {
 					.prepareStatement(searchquestionString);
 			searchquestionstmt.setString(1, listname);
 			ResultSet tempSet = searchquestionstmt.executeQuery();
+			System.out.println(listname);
 			if (tempSet.next()) {
+				System.out.println(listname);
 				list.clear();
 				answer.clear();
 				String tempString = new String();
@@ -258,7 +291,7 @@ public class BookAction extends ActionSupport {
 					tempString = tempSet.getString("answer");
 					answer.add(tempString);
 				} while (tempSet.next());
-				errorMessage = "List found";
+				errorMessage = "List Name:" + listname;
 			} else {
 				errorMessage = "no this list";
 				System.out.print("not find list");
@@ -281,10 +314,10 @@ public class BookAction extends ActionSupport {
 			ResultSet tempSet = searchstmt.executeQuery();
 			if (tempSet.next()) {
 				String temp = tempSet.getString("questionlists");
-				System.out.println("heh");
-				System.out.println(temp);
+				// System.out.println("heh");
+				// System.out.println(temp);
 				String[] setStrings = temp.split("\\.");
-				System.out.println(setStrings.length);
+				// System.out.println(setStrings.length);
 				for (String s : setStrings) {
 					System.out.println(s);
 					list.add(s);

@@ -3,6 +3,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+ <% request.setCharacterEncoding("utf-8");
+response.setContentType("text/html;charset=utf-8");%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -22,11 +24,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
- 	 <center><h1><b><s:property value="errorMessage"/></b></h1></center>
-    <br>
-    User:<s:property value="username"/>
+   <body>
+  <center><h2><b>QA</b></h2></center>
     <hr>
+    <b>
+    User:<s:property value="username"/><a href="index.action">登出</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="<s:url action="returnuser.action"><s:param name="username" value="username"></s:param></s:url>">主页</a>
+    </b>
+    <hr>
+    <center><h1><b><s:property value="errorMessage"/></b></h1></center>
     <center>
     <s:form action="finished.action"> 
     <input type="hidden" name="username" value=${username}  />
@@ -42,9 +48,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	<s:submit />
 	</s:form>
-	<s:form align="CENTER" action="returnuser.action" >
-  <input type="hidden" name="username" value=${username}  />
-  <s:submit value="Return"/></s:form>
 	</center>
   </body>
 </html>

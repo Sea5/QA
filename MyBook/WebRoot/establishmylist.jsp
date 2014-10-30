@@ -21,11 +21,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   </head>
-  <body>
-  <center><h1><b><s:property value="errorMessage"/></b></h1></center>
-    <br>
-    User:<s:property value="username"/>
-    <hr>
+   <body>
+  <center><h2><b>QA</b></h2></center>
+    <hr><b>
+    User:<s:property value="username"/><a href="index.action">登出</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="<s:url action="returnuser.action"><s:param name="username" value="username"></s:param></s:url>">主页</a>
+    </b><hr>
+    <center><b><s:property value="errorMessage"/></b></center>
     <center>
   <s:form action="establishmylist" >
   <input type="hidden" name="username" value=${username}  />

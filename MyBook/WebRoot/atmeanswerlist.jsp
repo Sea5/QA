@@ -1,8 +1,10 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+ <% request.setCharacterEncoding("utf-8");
+response.setContentType("text/html;charset=utf-8");%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -21,10 +23,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   </head>
-  
-  <body>
-   User:<s:property value="username"/>
-    <hr>
+      <style type="text/css"> 
+<!-- 
+a:link { 
+color: #000000; 
+text-decoration: none; 
+} 
+a:visited { 
+color: #000000; 
+text-decoration: none; 
+} 
+a:hover { 
+color: #999999; 
+text-decoration: none; 
+} 
+--> 
+</style> 
+   <body>
+  <center><h2><b>QA</b></h2></center>
+    <hr><b>
+   User:<s:property value="username"/><a href="index.action">登出</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="<s:url action="returnuser.action"><s:param name="username" value="username"></s:param></s:url>">主页</a>
+    </b><hr>
    <table border=1 align="CENTER">
     <tr>
     	<td>Num</td>
@@ -37,8 +57,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	 </tr>
 	</s:iterator>
 	</table>
-	<s:form align="CENTER" action="returnuser.action" >
-  <input type="hidden" name="username" value=${username}  />
-  <s:submit value="Return"/></s:form>
   </body>
 </html>

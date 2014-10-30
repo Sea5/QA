@@ -1,8 +1,10 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+ <% request.setCharacterEncoding("utf-8");
+response.setContentType("text/html;charset=utf-8");%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -23,9 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-     <center><h1><b><s:property value="errorMessage"/></b></h1></center>
-    <br>
-        <hr>
-        <s:form align="CENTER" action="index.action" ><s:submit value="Return"/></s:form>
+   <h1><b>Sign up</b></h1>
+  <hr>
+         <center><b><s:property value="errorMessage"/></b></center>
+        <a href="<s:url action="returnuser.action"><s:param name="username" value="username"></s:param></s:url>">进入我的QA.</a><br>
   </body>
 </html>
