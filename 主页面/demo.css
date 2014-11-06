@@ -103,7 +103,16 @@ section {
 	font-size: 1em;
 	max-width: 1200px;
 	margin: 0 auto 0;
-	padding: 2em 10em 0;
+	padding: 0 10em 0;
+}
+.codrops-demos .gridtable {
+	display: inline-table;
+	/*background: #fffce1;*/
+	outline: none;
+	text-decoration: none;
+	letter-spacing: 1px;
+	font-weight: 800;
+	border-radius: 15px;
 }
 
 .codrops-demos > a {

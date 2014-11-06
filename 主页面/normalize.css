@@ -133,3 +133,31 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+table.gridtable {
+	margin: 10px;
+	border-radius:10px;
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	margin: 1px;
+	border-radius: 2px;
+	border-width: 2px;
+	padding: 8px;
+	border-style: solid none;
+	border-color: #666666;
+	background-color: #9E9E9E;
+}
+table.gridtable td {
+	margin: 1px 1px 1px 1px;
+	border-radius: 2px;
+	border-width: 0px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}

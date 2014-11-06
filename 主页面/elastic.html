@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
+<html lang="en" class="no-js"><head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -8,7 +7,7 @@
 
 <link rel="stylesheet" type="text/css" href="normalize.css" />
 <link rel="stylesheet" type="text/css" href="demo.css" />
-
+<script type="text/javascript" src="../jquery-1.11.1.min.js"></script>
 <!--必要样式-->
 <link rel="stylesheet" type="text/css" href="font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="menu_elastic.css" />
@@ -47,9 +46,50 @@
             
             </div>
 			<header class="codrops-header">
-				<nav class="codrops-demos">
-                	<!--<div style="color:#fffce1;"><h1><b>sas</b></h1></div>-->
-					<a href="index.html">Top Side</a>
+			<nav class="codrops-demos">
+                
+                	<div style="color:#fffce1;"><h1><b>sas</b></h1></div>
+                <div style="width:500px">
+                <table class="gridtable">
+                <th>example</th>
+                <th>example</th>
+                <th>example</th>
+                <th>example</th>
+                <th>example</th>
+                <th>example</th>
+                <tr><td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td></tr>
+                <tr><td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td></tr>
+                <tr><td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td></tr>
+                <tr><td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td></tr>
+                <tr><td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td>
+                <td>example</td></tr>
+                </table>
+                </div>
+					<!--<a href="index.html">Top Side</a>
 					<a href="sideslide.html">Side Slide</a>
 					<a href="cornerbox.html">Corner Box</a>
 					<a href="cornerbox_nested.html">Nested Corner Box</a>
@@ -57,13 +97,17 @@
 					<a href="cornermorph.html">Corner Morph</a>
 					<a class="current-demo" href="elastic.html">Elastic</a>
 					<a href="bubble.html">Bubble</a>
-					<a href="wave.html">Wave</a>
+					<a href="wave.html">Wave</a>-->
 				</nav>
 			</header>
 			<div style="height:200px;"></div>
 		</div>
 	</div><!-- /content-wrap -->
-
+<script >
+$(document).ready(function(){
+    $("tr:even td").css("background-color","#dedede");
+});
+</script>
 <script src="classie.js"></script>
 <script src="main3.js"></script>
 </body>
