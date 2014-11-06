@@ -12,7 +12,6 @@ body,
 	margin: 0.2em auto 0;
 	padding: 0.3em 10em 0.3em;
 	text-align: center;
-	border-radius:10px;
 }
 .container  h1{
 	
@@ -38,7 +37,30 @@ body,
 	position: relative;
 	background: #b4bad2;
 }
-
+div .topbar {
+	overflow:hidden;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	background: #373a47;
+	padding: 0.5em 0;
+	box-shadow:0 10px 7px  0.1px #999999;
+	}
+.topbar > a {
+	display: inline-block;
+	margin: 0;
+	padding: 0.1em 0.5em;
+	background: #fffce1;
+	outline: none;
+	text-decoration: none;
+	font-weight: 800;
+	border-radius: 5px;
+}
+.topbar > a.current-demo {
+	background: #c94e50;
+	color: #fffce1;
+}
 .content::before {
 	position: absolute;
 	top: 0;

@@ -33,14 +33,14 @@ a:hover, a:focus {
 	outline: none;
 }
 
-button:focus {
+/*button:focus {
 	outline: none;
 }
 
 section {
 	padding: 1em;
 	text-align: center;
-}
+}*/
 
 /* Header */
 .codrops-header {
@@ -56,7 +56,7 @@ section {
 	line-height: 1;
 }
 
-.codrops-header h1 span {
+/*.codrops-header h1 span {
 	display: block;
 	font-size: 50%;
 	font-weight: 400;
@@ -96,16 +96,8 @@ section {
 
 .codrops-icon-prev:before {
 	content: "\e004";
-}
-
-/* Demo Buttons Style */
-.codrops-demos {
-	font-size: 1em;
-	max-width: 1200px;
-	margin: 0 auto 0;
-	padding: 0 10em 0;
-}
-.codrops-demos .gridtable {
+}*/
+.gridtable {
 	display: inline-table;
 	/*background: #fffce1;*/
 	outline: none;
@@ -114,6 +106,14 @@ section {
 	font-weight: 800;
 	border-radius: 15px;
 }
+/* Demo Buttons Style */
+.codrops-demos {
+	font-size: 1em;
+	max-width: 1200px;
+	margin: 0 auto 0;
+	padding: 0 10em 0;
+}
+
 
 .codrops-demos > a {
 	display: inline-block;
