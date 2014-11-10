@@ -100,7 +100,6 @@ section {
 .gridtable {
 	display: inline-table;
 	/*background: #fffce1;*/
-	outline: none;
 	text-decoration: none;
 	letter-spacing: 1px;
 	font-weight: 800;

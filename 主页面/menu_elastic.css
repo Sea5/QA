@@ -32,34 +32,130 @@ body,
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
 }
-
 .content {
+	display:block;
 	position: relative;
 	background: #b4bad2;
+	text-align:center;
+	background-image:url(background.jpg);
+	background-repeat:repeat;
 }
+/*********************************block set********************************************/
+.content  .block {
+	background:url(block.jpg) center center;
+	background-size:100%;
+	display:inline-block;
+	margin: 1em 0;
+	padding: 0.5em 5em;
+	background-color:#909BC1;
+	font-weight:800;
+	/*outline-style:solid;
+	outline-color:#333;
+	outline-width:thick;*/
+	color: #CCCAC7;
+	width:80%;
+	border-radius:10px;
+	box-shadow:5px 5px 20px #333;
+	}
+.block .addbutton,.confirm {
+	display: inline-block;
+	margin: 0.75em;
+	padding: 0.5em 2em;
+	/*background: #FFF9C7;*/
+	background-color:#FFA3BA;
+	outline: none;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 800;
+	border-radius: 5px;
+	}
+.block .addbutton:hover,.confirm:hover {
+	background: #FF0A47;
+	color: #fffce1;
+	}	
+.block li{
+	list-style-type:none;
+	}
+.block input{
+	margin:1em 0 0;
+	color:#CCC;
+	background-image:url(background.jpg);
+	border-top-color:#999;
+	border-left-color:#888;
+	border-bottom-color:#CCC;
+	border-right-color:#CCC;
+	width:60%;
+	height:2em;
+	}
+.block input:focus{
+	outline-style:none;
+	}
+.block .radiobutton1,.radiobutton2,.radiobutton3 {
+	display: inline-block;
+	margin: 0.5em 0;
+	padding: 0.5em 1em;
+	background-color:#FFF9C7;
+	outline: none;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 800;
+	border-radius: 5px;
+}
+.block .radiobutton1:hover,.radiobutton2:hover,.radiobutton3:hover {
+	background: #FF0A47;
+	color: #fffce1;
+	}
+.block select {
+	margin: 1em 0 0;
+	background-image:url(background.jpg);
+
+}
+.block textarea {
+	width:60%;
+	border-radius:5px;
+	border-width:medium;
+	margin: 1em 0 0;
+	background-image:url(background.jpg);
+	border-top-color:#222;
+	border-left-color:#333;
+	border-bottom-color:#AAA;
+	border-right-color:#777;
+	}
+.block textarea:focus {
+	outline-style:none;
+}
+.block .choose {
+	background: #FF0A47;
+	color: #fffce1;
+}
+/**********************************************************************************************************/
 div .topbar {
+	text-align:left;
+	display:inline-block;
 	overflow:hidden;
 	position: fixed;
 	left: 0;
 	right: 0;
 	top: 0;
-	background: #373a47;
-	padding: 0.5em 0;
-	box-shadow:0 10px 7px  0.1px #999999;
+	background: #4F5264;
+	padding: 0;
+	box-shadow:0 5px 20px  #5C5C5C;
 	}
 .topbar > a {
 	display: inline-block;
-	margin: 0;
-	padding: 0.1em 0.5em;
+	margin:0 0 0;
+	padding: 0.4em 5em;
 	background: #fffce1;
 	outline: none;
 	text-decoration: none;
 	font-weight: 800;
-	border-radius: 5px;
 }
 .topbar > a.current-demo {
 	background: #c94e50;
 	color: #fffce1;
+	box-shadow: 10px 10px 20px 10px #383A47;
 }
 .content::before {
 	position: absolute;
@@ -124,6 +220,7 @@ div .topbar {
 
 .close-button::before,
 .close-button::after {
+	
 	content: '';
 	position: absolute;
 	width: 2px;
