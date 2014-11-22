@@ -8,7 +8,7 @@ body,
 }
 
 .container {
-	background: #373a47;
+	/*background: #373a47;*/
 	margin: 0.2em auto 0;
 	padding: 0.3em 10em 0.3em;
 	text-align: center;
@@ -35,26 +35,27 @@ body,
 .content {
 	display:block;
 	position: relative;
-	background: #b4bad2;
+	/*background: #b4bad2;*/
 	text-align:center;
-	background-image:url(background.jpg);
-	background-repeat:repeat;
+	background-color:#DDD;
+	/*background-image:url(background.jpg);
+	background-repeat:repeat;*/
 }
 /*********************************block set********************************************/
 .content  .block {
-	background:url(block.jpg) center center;
-	background-size:100%;
+	/*background:url(block.jpg) center center;*/
+	background-color:#333;
+	/*background-size:100%;*/
 	display:inline-block;
 	margin: 1em 0;
 	padding: 0.5em 5em;
-	background-color:#909BC1;
 	font-weight:800;
 	/*outline-style:solid;
 	outline-color:#333;
 	outline-width:thick;*/
-	color: #CCCAC7;
+	color: #CCC;
 	width:80%;
-	border-radius:10px;
+	/*border-radius:10px;*/
 	box-shadow:5px 5px 20px #333;
 	}
 .block .addbutton,.confirm {
@@ -79,12 +80,13 @@ body,
 	}
 .block input{
 	margin:1em 0 0;
-	color:#CCC;
-	background-image:url(background.jpg);
+	color:#000;
+	background-color:#DDD;
+	/*background-image:url(background.jpg);*/
 	border-top-color:#999;
 	border-left-color:#888;
-	border-bottom-color:#CCC;
-	border-right-color:#CCC;
+	border-bottom-color:#FFF;
+	border-right-color:#FFF;
 	width:60%;
 	height:2em;
 	}
@@ -109,7 +111,7 @@ body,
 	}
 .block select {
 	margin: 1em 0 0;
-	background-image:url(background.jpg);
+	/*background-image:url(background.jpg);*/
 
 }
 .block textarea {
@@ -117,7 +119,8 @@ body,
 	border-radius:5px;
 	border-width:medium;
 	margin: 1em 0 0;
-	background-image:url(background.jpg);
+	background-color:#DDD;
+	/*background-image:url(background.jpg);*/
 	border-top-color:#222;
 	border-left-color:#333;
 	border-bottom-color:#AAA;
