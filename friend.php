@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <?php
-include_once( 'config.php' );
-include_once( 'saetv2.ex.class.php' );
-$o = new SaeTOAuthV2( WB_AKEY , WB_SKEY );
-$str=$_COOKIE['weibojs_'.$o->client_id];
-parse_str($str,$arr);
-$p = new SaeTClientV2( WB_AKEY , WB_SKEY , $arr['access_token']);
-$data = $p->show_user_by_id($_REQUEST['uid']);
+//include_once( 'config.php' );
+//include_once( 'saetv2.ex.class.php' );
+//$o = new SaeTOAuthV2( WB_AKEY , WB_SKEY );
+//$str=$_COOKIE['weibojs_'.$o->client_id];
+//parse_str($str,$arr);
+//$p = new SaeTClientV2( WB_AKEY , WB_SKEY , $arr['access_token']);
+//$data = $p->show_user_by_id($_REQUEST['uid']);
 ?>
 <html lang="en" class="no-js">
  <head> 
@@ -40,13 +40,20 @@ $data = $p->show_user_by_id($_REQUEST['uid']);
       <div class="col-md-1"> 
       </div> 
       <div class="col-md-10" style="text-align:center;"> 
-      <?php
-		$fri=$p->bilateral($_REQUEST['uid']);
-		for($i=0;$i<count($fri['users']);$i++)
-		{
-			echo $fri['users'][$i]['name'];//好友昵称
-		}
-		?>
+     <?php
+		//$fri=$p->bilateral($_REQUEST['uid']);
+		//for($i=0;$i<count($fri['users']);$i++)
+		//{
+		//	echo $fri['users'][$i]['name'];//好友昵称
+		//}
+		?> 
+    <?php
+      $arrayName = array('0' =>"ben" ,'1'=>"david" , '2'=>"vivian" );
+      for($i=0;$i<count($arrayName);$i++)
+    {
+      echo $arrayName[$i];
+    }
+    ?>
       </div> 
      </div> 
      <div class="row-fluid"> 
