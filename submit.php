@@ -35,17 +35,17 @@
 		$n=1;
 		while(1){
 			$choose="no answer";
-			if(isset($_GET[$n.""])){
-				$s=$_GET[$n.""];
+			if(isset($_POST[$n.""])){
+				$s=$_POST[$n.""];
 				switch($s){
 					case "choose":
-						echo "question".$n.":".$_GET[$n."question"]."<br />";
-						echo "A.".$_GET[$n."answerA"]."<br />";
-						echo "B.".$_GET[$n."answerB"]."<br />";
-						echo "C.".$_GET[$n."answerC"]."<br />";
-						echo "D.".$_GET[$n."answerD"]."<br />";
+						echo "question".$n.":".$_POST[$n."question"]."<br />";
+						echo "A.".$_POST[$n."answerA"]."<br />";
+						echo "B.".$_POST[$n."answerB"]."<br />";
+						echo "C.".$_POST[$n."answerC"]."<br />";
+						echo "D.".$_POST[$n."answerD"]."<br />";
 						for($i=0;$i<4;$i++){
-							if(isset($_GET[(string)$n.(string)$i])){
+							if(isset($_POST[(string)$n.(string)$i])){
 								switch($i){
 									case 0:
 										$choose="A";
@@ -66,12 +66,12 @@
 						echo "choose:".$choose."<br />";
 						break;
 					case "fillblank":
-						echo "question".$n.":     ".$_GET[$n."question"]."<br />";
-						echo "answer:       ".$_GET[$n."answer"]."<br />";
+						echo "question".$n.":     ".$_POST[$n."question"]."<br />";
+						echo "answer:       ".$_POST[$n."answer"]."<br />";
 						break;
 					case "answer":
-						echo "question".$n.":     ".$_GET[$n."question"]."<br />";
-						echo "answer:     ".$_GET[$n."answer"]."<br />";
+						echo "question".$n.":     ".$_POST[$n."question"]."<br />";
+						echo "answer:     ".$_POST[$n."answer"]."<br />";
 						break;
 				}
 				$n++;

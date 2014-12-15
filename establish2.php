@@ -31,7 +31,7 @@
       <div class="col-md-1"> 
       </div> 
       <div class="col-md-10" style="text-align:center;"> 
-       <form action="submit.php" method="get"> 
+       <form action="submit.php" method="post"> 
         <fieldset id="qlist"> 
          <legend> 题单名：<input type="text" class="form-control" style="margin:0px 20% 0px;width:60%;" /> </legend> 
          <div class="row"> 
@@ -107,7 +107,7 @@
    </div> 
    <script>
 var number=1;
-var pass_value;
+//var pass_value;
 //var xmlHttp;
 //function createXMLHttpRequest()
 //{
@@ -124,7 +124,7 @@ var pass_value;
 //xmlHttp.open("POST", url, true); 
 //xmlHttp.onreadystatechange = callBack_CheckName; 
 //xmlHttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');   
-function validateForm(){
+/*function validateForm(){
 	var n=1;
 	pass_value="";
 	while(1){
@@ -171,7 +171,7 @@ function validateForm(){
 		}
 	} 
 	alert(pass_value);
-}
+}*/
 function add1(){
 	if(number>15)
 	{
