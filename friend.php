@@ -31,9 +31,9 @@ $data = $p->show_user_by_id($_REQUEST['uid']);
      </div> 
      <ul class="nav nav-tabs"> 
       <!--style="background:#333;border-radius: 4px;"--> 
-      <li> <a id="myList" href="MyList.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-list"></i>&nbsp;我的题单&nbsp;&nbsp;&nbsp;</a> </li> 
-      <li> <a id="rankList" href="mylist_rank_chosen.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-sort-by-order"></i>&nbsp;排行榜&nbsp;&nbsp;</a> </li> 
-      <li> <a id="atMe" href="atme.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-tasks"></i>&nbsp;@我的&nbsp;&nbsp;&nbsp;</a> </li> 
+      <li> <a id="myList" href="MyList.php?uid=<?php echo $_REQUEST['uid']; ?>">&nbsp;&nbsp;<i class="glyphicon glyphicon-list"></i>&nbsp;我的题单&nbsp;&nbsp;&nbsp;</a> </li> 
+      <li> <a id="rankList" href="mylist_rank_chosen.php?uid=<?php echo $_REQUEST['uid']; ?>">&nbsp;&nbsp;<i class="glyphicon glyphicon-sort-by-order"></i>&nbsp;排行榜&nbsp;&nbsp;</a> </li> 
+      <li> <a id="atMe" href="atme.php?uid=<?php echo $_REQUEST['uid']; ?>">&nbsp;&nbsp;<i class="glyphicon glyphicon-tasks"></i>&nbsp;@我的&nbsp;&nbsp;&nbsp;</a> </li> 
       <li class="active"> <a id="establishNewList" class="disabled">&nbsp;&nbsp;<i class="glyphicon glyphicon-plus"></i>&nbsp;发布新题单&nbsp;&nbsp;&nbsp;</a> </li> 
      </ul> 
      <div class="row-fluid"> 
@@ -44,7 +44,7 @@ $data = $p->show_user_by_id($_REQUEST['uid']);
 		$fri=$p->bilateral($_REQUEST['uid']);
 		for($i=0;$i<count($fri['users']);$i++)
 		{
-			echo $fri['users'][$i]['name'];
+			echo $fri['users'][$i]['name'];//好友昵称
 		}
 		?>
       </div> 

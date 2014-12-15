@@ -25,7 +25,7 @@ $data = $p->show_user_by_id($_REQUEST['uid']);
 </style>
 </head>
 <body>
-	<div class="container-fluid" style="background:url(background.png) repeat;min-height:583px">
+	<div class="container-fluid" style="background:url(background.png) repeat;min-height:583px;">
 	<div class="row-fluid">
 		<div class="col-md-12">
 			<div class="page-header">
@@ -35,14 +35,14 @@ $data = $p->show_user_by_id($_REQUEST['uid']);
                 <div style="position:absolute;right:0px;top:10px;"><a href="#" >欢迎，<?php echo $data['name']; ?></a></div>
 			</div>
 			 <ul class="nav nav-tabs"> <!--style="background:#333;border-radius: 4px;"-->
-				<li class="active">
-					<a class="disabled" id="myList">&nbsp;&nbsp;<i class="glyphicon glyphicon-list"></i>&nbsp;我的题单&nbsp;&nbsp;&nbsp;</a>
+				<li>
+					<a id="myList" href="MyList.php?uid=<?php echo $_REQUEST['uid']; ?>">&nbsp;&nbsp;<i class="glyphicon glyphicon-list"></i>&nbsp;我的题单&nbsp;&nbsp;&nbsp;</a>
 				</li>
 				<li>
 					<a id="rankList" href="mylist_rank_chosen.php?uid=<?php echo $_REQUEST['uid']; ?>">&nbsp;&nbsp;<i class="glyphicon glyphicon-sort-by-order"></i>&nbsp;排行榜&nbsp;&nbsp;</a>
 				</li>
-				<li>
-					<a id="atMe" href="atme.php?uid=<?php echo $_REQUEST['uid']; ?>">&nbsp;&nbsp;<i class="glyphicon glyphicon-tasks"></i>&nbsp;@我的&nbsp;&nbsp;&nbsp;</a>
+				<li class="active">
+					<a id="atMe" class="disabled">&nbsp;&nbsp;<i class="glyphicon glyphicon-tasks"></i>&nbsp;@我的&nbsp;&nbsp;&nbsp;</a>
 				</li>
                 <li>
 					<a id="establishNewList" href="establish.php?uid=<?php echo $_REQUEST['uid']; ?>">&nbsp;&nbsp;<i class="glyphicon glyphicon-plus"></i>&nbsp;发布新题单&nbsp;&nbsp;&nbsp;</a>
@@ -53,105 +53,78 @@ $data = $p->show_user_by_id($_REQUEST['uid']);
 				<div class="col-md-1">
 				</div>
 				<div class="col-md-10">
-					<table class="table table-hover table-striped">
-				<thead>
-					<tr>
-						<th>
-							<?php
-		$author=$_REQUEST['uid'];
-		$con = mysql_connect("localhost","root","");
-		mysql_select_db("ques", $con);
-		$result = mysql_query("SELECT * FROM ques WHERE uid='$_REQUEST[uid]'");
-		while($row = mysql_fetch_array($result))
-	{
-	echo $row['name1'] . "</ br>";
-	}
-		?>
-						</th>
-						<th>
-							题单名
-						</th>
-						<th>
-							回答人数
-						</th>
-						<th>
-							待评人数
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Default
-						</td>
-					</tr>
-					<tr class="success">
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Approved
-						</td>
-					</tr>
-					<tr class="error">
-						<td>
-							2
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							02/04/2012
-						</td>
-						<td>
-							Declined
-						</td>
-					</tr>
-					<tr class="warning">
-						<td>
-							3
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							03/04/2012
-						</td>
-						<td>
-							Pending
-						</td>
-					</tr>
-					<tr class="info">
-						<td>
-							4
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							04/04/2012
-						</td>
-						<td>
-							Call in to confirm
-						</td>
-					</tr>
-				</tbody>
-			</table>
+					<?php
+						$player=$_REQUEST['uid'];
+						$author=$_REQUEST['author'];
+						$qname=$_REQUEST['qname'];
+						$con = mysql_connect("localhost","root","");
+						mysql_select_db("ques", $con);
+						$result = mysql_query("SELECT * FROM ques WHERE uid='$author' and qname='$qname'");
+						while($row = mysql_fetch_array($result))
+						{
+							echo $row['qname']."<br />";
+							if($row['type1']==1)
+							{
+								//$name1
+								//$ansA1
+								//$ansB1
+								//$ansC1
+								//$ansD1
+							}
+							if($row['type1']==2)
+							{
+								//$name1
+							}
+							if($row['type2']==1)
+							{
+								//$name1
+								//$ansA1
+								//$ansB1
+								//$ansC1
+								//$ansD1
+							}
+							if($row['type2']==2)
+							{
+								//$name1
+							}
+							if($row['type3']==1)
+							{
+								//$name1
+								//$ansA1
+								//$ansB1
+								//$ansC1
+								//$ansD1
+							}
+							if($row['type3']==2)
+							{
+								//$name1
+							}
+							if($row['type4']==1)
+							{
+								//$name1
+								//$ansA1
+								//$ansB1
+								//$ansC1
+								//$ansD1
+							}
+							if($row['type4']==2)
+							{
+								//$name1
+							}
+							if($row['type5']==1)
+							{
+								//$name1
+								//$ansA1
+								//$ansB1
+								//$ansC1
+								//$ansD1
+							}
+							if($row['type5']==2)
+							{
+								//$name1
+							}
+						}
+					?>
 				</div>
 				<div class="col-md-1">
 				</div>
