@@ -31,7 +31,7 @@
       <div class="col-md-1"> 
       </div> 
       <div class="col-md-10" style="text-align:center;"> 
-       <form action="#" onSubmit="validateForm()"> 
+       <form action="submit.php" method="get"> 
         <fieldset id="qlist"> 
          <legend> 题单名：<input type="text" class="form-control" style="margin:0px 20% 0px;width:60%;" /> </legend> 
          <div class="row"> 
@@ -108,6 +108,22 @@
    <script>
 var number=1;
 var pass_value;
+//var xmlHttp;
+//function createXMLHttpRequest()
+//{
+//   if(window.ActiveXObject)
+//   {
+//      xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+//   }
+//   else if(window.XMLHttpRequest)
+//   {
+//      xmlHttp = new XMLHttpRequest();
+//   }
+//}
+//var url = "submit.php"; 
+//xmlHttp.open("POST", url, true); 
+//xmlHttp.onreadystatechange = callBack_CheckName; 
+//xmlHttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');   
 function validateForm(){
 	var n=1;
 	pass_value="";
@@ -165,7 +181,8 @@ function add1(){
 	var node=document.getElementById("des");
 	var block=document.createElement("div");
 	block.setAttribute("id",number);
-	var s='<label name="choose">问题:'+number+'</label><textarea type="text" rows=3 style="width:100%"></textarea><div class="input-group"><span class="input-group-addon"><input name="A" type="checkbox"/></span><span class="input-group-addon">A.</span><input name="input1" type="text" class="form-control"/></div><div class="input-group"><span class="input-group-addon"><input name="B" type="checkbox"/></span><span class="input-group-addon">B.</span><input type="text" name="input2" class="form-control"/></div><div class="input-group"><span class="input-group-addon"><input name="C" type="checkbox"/></span><span class="input-group-addon">C.</span><input name="input3" type="text" class="form-control"/></div><div class="input-group"><span class="input-group-addon"><input name="D" type="checkbox"/></span><span class="input-group-addon">D.</span><input type="text" name="input4" class="form-control"/>';
+	var s='<label>问题:'+number+'</label><input type="hidden" name="'+number+'" value="choose"><textarea '+'name="'+number+'question"'+' type="text" rows=3 style="width:100%"></textarea><div class="input-group"><span class="input-group-addon"><input name="'+number+'0" type="checkbox"/></span><span class="input-group-addon">A.</span><input name="'+number+'answerA" type="text" class="form-control"/></div><div class="input-group"><span class="input-group-addon"><input name="'+number+'1" type="checkbox"/></span><span class="input-group-addon">B.</span><input type="text" name="'+number+'answerB" class="form-control"/></div><div class="input-group"><span class="input-group-addon"><input name="'+number+'2" type="checkbox"/></span><span class="input-group-addon">C.</span><input name="'+number+'answerC" type="text" class="form-control"/></div><div class="input-group"><span class="input-group-addon"><input name="'+number+'3" type="checkbox"/></span><span class="input-group-addon">D.</span><input type="text" name="'+number+'answerD" class="form-control"/>';
+		/*var s='<label name="choose">问题:'+number+'</label><textarea type="text" rows=3 style="width:100%"></textarea><div class="input-group"><span class="input-group-addon"><input name="A" type="checkbox"/></span><span class="input-group-addon">A.</span><input name="input1" type="text" class="form-control"/></div><div class="input-group"><span class="input-group-addon"><input name="B" type="checkbox"/></span><span class="input-group-addon">B.</span><input type="text" name="input2" class="form-control"/></div><div class="input-group"><span class="input-group-addon"><input name="C" type="checkbox"/></span><span class="input-group-addon">C.</span><input name="input3" type="text" class="form-control"/></div><div class="input-group"><span class="input-group-addon"><input name="D" type="checkbox"/></span><span class="input-group-addon">D.</span><input type="text" name="input4" class="form-control"/>';*/
 	number++;
 	block.innerHTML=s;
 	node.parentNode.insertBefore(block,node);
@@ -264,7 +281,7 @@ function add2(){
 		var node=document.getElementById("des");
 		var block=document.createElement("div");
 		block.setAttribute("id",number);
-		var s='<label name="fillblank">问题:'+number+'</label><textarea name="question" type="text" rows=3 style="width:100%"></textarea><textarea name="answer" type="text" rows=6 style="width:100%"></textarea>';
+		var s='<label>问题:'+number+'</label><input type="hidden" name="'+number+'" value="fillblank"><textarea name="'+number+'question" type="text" rows=3 style="width:100%"></textarea><textarea name="'+number+'answer" type="text" rows=6 style="width:100%"></textarea>';
 		number++;
 		block.innerHTML=s;
 		node.parentNode.insertBefore(block,node);
@@ -294,7 +311,7 @@ function add3(){
 		var node=document.getElementById("des");
 		var block=document.createElement("div");
 		block.setAttribute("id",number);
-		var s='<label name="answer">问题:'+number+'</label><textarea name="question" type="text" rows=3 style="width:100%"></textarea><textarea name="answer" type="text" rows=6 style="width:100%"></textarea>';
+		var s='<label>问题:'+number+'</label><input type="hidden" name="'+number+'" value="answer"><textarea name="'+number+'question" type="text" rows=3 style="width:100%"></textarea><textarea name="'+number+'answer" type="text" rows=6 style="width:100%"></textarea>';
 		number++;
 		block.innerHTML=s;
 		node.parentNode.insertBefore(block,node);

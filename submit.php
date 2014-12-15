@@ -31,6 +31,56 @@
       <div class="col-md-1"> 
       </div> 
       <div class="col-md-10" style="text-align:center;"> 
+      <?php
+		$n=1;
+		while(1){
+			$choose="no answer";
+			if(isset($_GET[$n.""])){
+				$s=$_GET[$n.""];
+				switch($s){
+					case "choose":
+						echo "question".$n.":".$_GET[$n."question"]."<br />";
+						echo "A.".$_GET[$n."answerA"]."<br />";
+						echo "B.".$_GET[$n."answerB"]."<br />";
+						echo "C.".$_GET[$n."answerC"]."<br />";
+						echo "D.".$_GET[$n."answerD"]."<br />";
+						for($i=0;$i<4;$i++){
+							if(isset($_GET[(string)$n.(string)$i])){
+								switch($i){
+									case 0:
+										$choose="A";
+										break;
+									case 1:
+										$choose="B";
+										break;
+									case 2:
+										$choose="C";
+										break;
+									case 3:
+										$choose="D";
+										break;
+								}
+								break;//该句选择 单选题多选时 保留最后的还是最先的 去掉该句保留最后 否则保留最前
+							}
+						}
+						echo "choose:".$choose."<br />";
+						break;
+					case "fillblank":
+						echo "question".$n.":     ".$_GET[$n."question"]."<br />";
+						echo "answer:       ".$_GET[$n."answer"]."<br />";
+						break;
+					case "answer":
+						echo "question".$n.":     ".$_GET[$n."question"]."<br />";
+						echo "answer:     ".$_GET[$n."answer"]."<br />";
+						break;
+				}
+				$n++;
+			}
+			else{
+				break;
+			}
+		}
+		?>
       </div> 
      </div> 
      <div class="row-fluid"> 
