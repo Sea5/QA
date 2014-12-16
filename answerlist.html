@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
- <head> 
-  <meta charset="UTF-8" /> 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
-  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-  <title>我的题单</title> 
+  <!DOCTYPE html>
+  <html lang="en" class="no-js">
+  <head> 
+    <meta charset="UTF-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <title>我的题单</title> 
   <!--[if IE]>
-<script src="js/html5.js"></script>
-<![endif]--> 
+  <script src="js/html5.js"></script>
+  <![endif]--> 
   <link href="dist/css/bootstrap.min.css" rel="stylesheet" /> 
   <style type="text/css">
   th,td{
-	  text-align:center
-	  }
-</style> 
- </head> 
- <body> 
+    text-align:center
+  }
+  </style> 
+</head> 
+<body> 
   <div class="container-fluid" style="background:url(background.png) repeat;min-height:583px"> 
    <div class="row-fluid"> 
     <div class="col-md-12"> 
@@ -23,40 +23,88 @@
       <h1> QA 社交问答<small>和你的小伙伴更亲近</small> </h1> 
       <div style="position:absolute;right:0px;top:10px;">
        <a href="#">微博入口</a>
-      </div> 
      </div> 
-     <ul class="nav nav-tabs"> 
-      <!--style="background:#333;border-radius: 4px;"--> 
-      <li> <a id="myList" href="MyList.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-list"></i>&nbsp;我的题单&nbsp;&nbsp;&nbsp;</a> </li> 
-      <li> <a id="rankList" href="mylist_rank_chosen.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-sort-by-order"></i>&nbsp;排行榜&nbsp;&nbsp;</a> </li> 
-      <li> <a id="atMe" href="atme.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-tasks"></i>&nbsp;@我的&nbsp;&nbsp;&nbsp;</a> </li> 
-      <li> <a id="establishNewList" href="establish.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-plus"></i>&nbsp;发布新题单&nbsp;&nbsp;&nbsp;</a> </li> 
-     </ul> 
-     <div class="row-fluid"> 
-      <div class="col-md-1"> 
-      </div> 
-      <div class="col-md-10"> 
-          <form action="" method="post">
-              <textarea rows="3"></textarea>
-             <button class="btn btn-primary" type="submit">提交回答</button>
-             <a class="btn btn-primary" href="#"><i class="glyphicon glyphicon-edit"></i>&nbsp;提交并同步微博</a>
-          </form>
-      </div> 
-      <div class="col-md-1"> 
-      </div> 
-     </div> 
-    </div> 
    </div> 
-   <div class="row-fluid"> 
-    <div class="col-md-12" style="margin:5px 0px 0px;"> 
-     <hr /> 
-     <p style="position:absolute;padding:0px 10%;text-align:center"> <strong><em>QA</em></strong>是好友间互问互答的系统，由<strong>HIT</strong>计算机科学与技术学院学生编写，作为软工项目。不足之处甚多，<strong>如果您有任何好的提议，请联系我们，QQ:547783544;</strong> </p> 
+   <ul class="nav nav-tabs"> 
+    <!--style="background:#333;border-radius: 4px;"--> 
+    <li> <a id="myList" href="MyList.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-list"></i>&nbsp;我的题单&nbsp;&nbsp;&nbsp;</a> </li> 
+    <li> <a id="rankList" href="mylist_rank_chosen.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-sort-by-order"></i>&nbsp;排行榜&nbsp;&nbsp;</a> </li> 
+    <li> <a id="atMe" href="atme.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-tasks"></i>&nbsp;@我的&nbsp;&nbsp;&nbsp;</a> </li> 
+    <li> <a id="establishNewList" href="establish.html">&nbsp;&nbsp;<i class="glyphicon glyphicon-plus"></i>&nbsp;发布新题单&nbsp;&nbsp;&nbsp;</a> </li> 
+  </ul> 
+
+  <div class="row-fluid"> 
+    <div class="col-md-1"> 
     </div> 
-   </div> 
+    <div class="col-md-10" style="text-align:center;"> 
+     <form action="#" onSubmit="validateForm()"> 
+      <fieldset id="qlist"> 
+       <legend> 题单名：<input type="text" class="form-control" style="margin:0px 20% 0px;width:60%;" /> </legend> 
+       <div class="row-fluid"> 
+        <form action="#" method="get">
+          <div class="col-md-3"> 
+          </div> 
+          <div class="col-md-6"> 
+        <!--  form里面所有有name属性的有value的元素 其内容都会传 checkbox只有选中的会被传 值为on 具体你可以看点击submit后网址后面的传值情况
+              用php显示的时候各问题的question和checkbox
+              现在form提交的method是get 写完不用看值后 改为post比较好
+            -->
+            <!--选择题样式 -->
+            <div>
+              <label>问题1:</label>
+              <textarea type="text" rows=3 style="width:100%" readonly="readonly">问题内容</textarea>
+              <div class="input-group">
+               <span class="input-group-addon"><input type="checkbox" name="1answerA"/></span>
+               <span class="input-group-addon">A.</span>
+               <input type="text" class="form-control" onfocus="this.blur()" value="答案A"/>
+             </div>
+             <div class="input-group">
+               <span class="input-group-addon"><input type="checkbox" name="1answerB"/></span>
+               <span class="input-group-addon">B.</span>
+               <input type="text" class="form-control" onfocus="this.blur()" value="答案B"/>
+             </div>
+             <div class="input-group">
+               <span class="input-group-addon"><input type="checkbox" name="1answerC"/></span>
+               <span class="input-group-addon">C.</span>
+               <input type="text" class="form-control" onfocus="this.blur()" value="答案C"/>
+             </div>
+             <div class="input-group">
+               <span class="input-group-addon"><input type="checkbox" name="1answerD"/></span>
+               <span class="input-group-addon">D.</span>
+               <input type="text" class="form-control" onfocus="this.blur()" value="答案D"/>
+             </div>
+           </div>
+           <!--   -->
+           <!-- 主观题-->
+           <div>
+            <label>问题:</label>
+            <textarea type="text" rows=3 style="width:100%" name="2question" readonly="readonly"></textarea>
+            <textarea type="text" rows=6 style="width:100%" name="2answer"></textarea>
+          </div>
+        </div>
+        <!--  -->
+        <div style="position:fixed;right:10%;bottom:100px;z-index:1000;">
+          <button class="btn btn-primary" type="submit">提交回答</button>
+        </div>
+      </div> 
+      <div class="col-md-3"> 
+      </div> 
+    </form>
   </div> 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script> 
-  <!-- Include all compiled plugins (below), or include individual files as needed --> 
-  <script src="dist/js/bootstrap.min.js"></script>  
- </body>
+</fieldset> 
+</form> 
+</div> 
+</div> 
+<div class="row-fluid"> 
+  <div class="col-md-12" style="margin:5px 0px 0px;"> 
+   <hr /> 
+   <p style="position:absolute;padding:0px 10%;text-align:center"> <strong><em>QA</em></strong>是好友间互问互答的系统，由<strong>HIT</strong>计算机科学与技术学院学生编写，作为软工项目。不足之处甚多，<strong>如果您有任何好的提议，请联系我们，QQ:547783544;</strong> </p> 
+ </div> 
+</div> 
+</div> 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="dist/js/bootstrap.min.js"></script>  
+</body>
 </html>
